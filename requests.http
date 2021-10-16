@@ -1,0 +1,36 @@
+@hostname = http://localhost:3000
+
+#users create
+POST {{hostname}}/users
+Content-Type: application/json
+
+{
+  "name" : "test", 
+  "email": "test@gmail.com",
+  "age_group": "18-35",
+  "password": "password",
+  "password_confirmation": "password",
+  "location": "Miami, FL",
+  "diagnosis_date": "12/01/2000",
+  "image_url": "https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80"
+
+}
+###
+#users show
+GET {{hostname}}/users/2
+
+###
+#user update
+PATCH  {{hostname}}/users/6
+Content-Type: application/json
+
+{
+ "password": "password",
+  "diagnosis_date": "2021-02-28"
+}
+
+###
+#user delete
+DELETE {{hostname}}/users/7
+
+###
