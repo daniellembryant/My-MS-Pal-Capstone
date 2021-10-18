@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   delete "/users/:id" => "users#destroy"
 
   post "/sessions" => "sessions#create"
+
+  get "/groups" => "groups#index"
+  post "/groups" => "groups#create"
 end

@@ -1,7 +1,7 @@
 @hostname = http://localhost:3000
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzQ1Nzg5OTR9.HKvTN-K6oKnIz3TDHS2Snoc6w3cpHstGsnQuUn6hUEM
 
-#users create
+#user create
 POST {{hostname}}/users
 Content-Type: application/json
 
@@ -40,3 +40,27 @@ Authorization: Bearer {{jwt}}
   "email" : "blue_s@gmail.com", 
   "password": "password"
 }
+
+### groups index
+GET {{hostname}}/groups
+Content-Type: application/json
+
+### group create
+POST {{hostname}}/groups
+Content-Type: application/json
+
+{
+  "name" : "Strong Women With MS",
+  "summary" : "Group of women with MS supporting other women with MS",
+  "location" : " Ft. Lauderdale,FL / Virtual",
+  "image_url": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+
+}
+
+### group show
+
+
+### group update- (update group 2 summary)
+
+###group destroy
+
