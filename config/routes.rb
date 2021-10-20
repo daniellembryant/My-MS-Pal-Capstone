@@ -8,4 +8,13 @@ Rails.application.routes.draw do
 
   get "/groups" => "groups#index"
   post "/groups" => "groups#create"
+  get "/groups/:id" => "groups#show"
+  patch "/groups/:id" => "groups#update"
+  delete "/groups/:id" => "groups#destroy"
+
+  post "/user_groups" => "user_groups#create"
+  delete "/user_groups/:id" => "user_groups#destroy"
+
+  post "/messages" => "messages#create"
+  delete "/messages/:id" => "messages#destroy"
 end
