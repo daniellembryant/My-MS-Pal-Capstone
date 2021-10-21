@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user, except: [:index]
 
   def index
     groups = Group.all
@@ -24,6 +25,7 @@ class GroupsController < ApplicationController
     render json: group
   end
 
+  #Only group admin should be able to update a group when logged in 
   def update
     group = Group.find(params[:id])
     group.name = params[:name] || group.name
@@ -37,6 +39,8 @@ class GroupsController < ApplicationController
     end
   end
 
+  #only group admin can delete a group when logged in
+  #When a group get's destroyed, users should no longer be assigned to that group
   def destroy
     group = Group.find_by(id: params[:id])
     group.destroy

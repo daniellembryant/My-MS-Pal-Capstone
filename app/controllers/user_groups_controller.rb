@@ -1,10 +1,12 @@
 class UserGroupsController < ApplicationController
-
+  
   # users can only join a group when logged in.
+  before_action :authenticate_user
+
   def create
 
     user_group = UserGroup.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       group_id: params[:group_id]
     )
     if user_group.save
@@ -14,6 +16,7 @@ class UserGroupsController < ApplicationController
     end
   end
 
+  #users can only leave a group when they are logged in
   def destroy
     user_group = UserGroup.find_by(id: params[:id])
     user_group.destroy

@@ -1,7 +1,7 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzQ1Nzg5OTR9.HKvTN-K6oKnIz3TDHS2Snoc6w3cpHstGsnQuUn6hUEM
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2MzQ4NjE4MDJ9._JZi2JZtnTk1ppvNTOJfvVa7L4KY462g7MzHo2E1U6k
 
-#user create
+#user create (sign up)
 POST {{hostname}}/users
 Content-Type: application/json
 
@@ -32,7 +32,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### user delete- can only delete their own account
-DELETE {{hostname}}/users/7
+DELETE {{hostname}}/users/9
 Authorization: Bearer {{jwt}}
 
 ### sessions create (login)
@@ -41,7 +41,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "blue_s@gmail.com", 
+  "email" : "jd33@yahoo.com", 
   "password": "password"
 }
 
@@ -75,7 +75,7 @@ Content-Type: application/json
   "summary": "Group of women with MS supporting other women with MS"
 }
 
-###group destroy- When a group get's destroyed, users should no longer be assigned to that group
+###group destroy
 DELETE {{hostname}}/groups/1
 
 ### user_group create
@@ -84,11 +84,11 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "user_id": 1,
+  "user_id": 8,
   "group_id": 2 
   }
 
-### user_group destroy-only when logged in
+### user_group destroy-only when logged in can a user leave a group
 DELETE {{hostname}}/user_groups/1
 
 ### message create- only when logged in
