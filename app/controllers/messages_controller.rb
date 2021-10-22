@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   
-  before_action :authenticate_admin
+  before_action :authenticate_admin, except: [:create]
 
   def create
     message = Message.new(

@@ -1,3 +1,3 @@
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :namne, :summary, :location, :image_url
+  attributes :id, :name, :summary, :location, :image_url
 end

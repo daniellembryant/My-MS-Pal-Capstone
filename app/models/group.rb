@@ -5,5 +5,5 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :summary, presence: true
-  validates :body, presence: true
+  validates :location, presence: true
 end

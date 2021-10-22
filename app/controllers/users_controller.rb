@@ -20,33 +20,42 @@ class UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
-
+   #users should only be able to see their own account when logged in. 
   def show
     user = User.find(params[:id])
-    render json: user
-  end
-
-  #users should only be able to update their info. when logged in. 
-  def update
-    user = User.find(params[:id])
-    user.name = params[:name] || user.name
-    user.email = params[:email] || user.email
-    user.age_group = params[:age_group] || user.age_group
-    user.password = params[:password] || user.password
-    user.password_confirmation = params[:password] || user.password_confirmation
-    user.location = params[:location] || user.location
-    user.diagnosis_date = params[:diagnosis_date] || user.diagnosis_date
-    user.image_url = params[:image_url] || user.image_url
-    if user.save
+    if user.id == current_user.id
       render json: user
     else
-      render json: {errors: user.errors.full_messages}
+      render json: {message: "You do not have access to view this profile"}
     end
   end
+
+  #users should only be able to update their own info. when logged in. 
+  def update
+    user = User.find(params[:id])
+    if user.id == current_user.id
+      user.name = params[:name] || user.name
+      user.email = params[:email] || user.email
+      user.age_group = params[:age_group] || user.age_group
+      user.password = params[:password] || user.password
+      user.password_confirmation = params[:password] || user.password_confirmation
+      user.location = params[:location] || user.location
+      user.diagnosis_date = params[:diagnosis_date] || user.diagnosis_date
+      user.image_url = params[:image_url] || user.image_url
+      render json: user
+    else
+      render json: {message: "You do not have access to edit this account"}
+    end
+  end
+
 #users should only be able to delete their info. when logged in. 
   def destroy
     user = User.find_by(id: params[:id])
-    user.destroy 
-    render json: {message: "Your account was successfully deleted"}
+    if user.id == current_user.id
+      user.destroy 
+      render json: {message: "Your account was successfully deleted"}
+    else
+      render json: {message: "You do not have access to delete this account"}
+    end
   end
 end

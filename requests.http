@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2MzQ4NjE4MDJ9._JZi2JZtnTk1ppvNTOJfvVa7L4KY462g7MzHo2E1U6k
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUwMTUzNDV9.1R9dP2-LgUGQNXFvmIEq4w_h38ggkxfhbEHWZfHrnDs
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -17,7 +17,8 @@ Content-Type: application/json
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/2
+GET {{hostname}}/users/3
+Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
@@ -32,7 +33,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### user delete- can only delete their own account
-DELETE {{hostname}}/users/9
+DELETE {{hostname}}/users/8
 Authorization: Bearer {{jwt}}
 
 ### sessions create (login)
@@ -41,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "jd33@yahoo.com", 
+  "email" : "blue_s@gmail.com", 
   "password": "password"
 }
 
@@ -55,10 +56,10 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name" : "Strong Women With MS",
-  "summary" : "Group of women with MS supporting other women with MS",
-  "location" : " Ft. Lauderdale,FL / Virtual",
-  "image_url": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+  "name" : "MS Elders",
+  "summary" : "Group for those who are over the age of 50",
+  "location" : "Miami,FL / Virtual",
+  "image_url": ""
 
 }
 

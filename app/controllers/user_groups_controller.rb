@@ -4,7 +4,6 @@ class UserGroupsController < ApplicationController
   before_action :authenticate_user
 
   def create
-
     user_group = UserGroup.new(
       user_id: current_user.id,
       group_id: params[:group_id]
