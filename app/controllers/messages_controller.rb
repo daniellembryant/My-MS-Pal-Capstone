@@ -1,10 +1,11 @@
 class MessagesController < ApplicationController
   
+  before_action :authenticate_user
   before_action :authenticate_admin, except: [:create]
 
   def create
     message = Message.new(
-     user_id: params[:user_id],
+     user_id: current_user.id,
      group_id: params[:group_id],
      body: params[:body]
     )

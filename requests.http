@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzUwMTUzNDV9.1R9dP2-LgUGQNXFvmIEq4w_h38ggkxfhbEHWZfHrnDs
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2MzUwMzAxNTZ9.a2ENRkmQHQSP7GLD1NZc7Rg6fOqxOsMzCK1S1se5CVM
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "blue_s@gmail.com", 
+  "email" : "smith.a3_PR@gmail.com", 
   "password": "password"
 }
 
@@ -56,9 +56,9 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name" : "MS Elders",
-  "summary" : "Group for those who are over the age of 50",
-  "location" : "Miami,FL / Virtual",
+  "name" : "MS Warriors",
+  "summary" : "People with MS doing their best",
+  "location" : "Virtual",
   "image_url": ""
 
 }
@@ -71,26 +71,29 @@ Authorization: Bearer {{jwt}}
 ### group update-only group admin can update
 PATCH {{hostname}}/groups/2
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
-  "summary": "Group of women with MS supporting other women with MS"
+  "summary": "Group of women who are over the age of 50."
 }
 
 ###group destroy
-DELETE {{hostname}}/groups/1
+DELETE {{hostname}}/groups/4
+Authorization: Bearer {{jwt}}
 
-### user_group create
+### user_group create- a user can only join a group when they are logged in
 POST {{hostname}}/user_groups
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "user_id": 8,
-  "group_id": 2 
+  
+  "group_id": 3
   }
 
 ### user_group destroy-only when logged in can a user leave a group
-DELETE {{hostname}}/user_groups/1
+DELETE {{hostname}}/user_groups/5
+Authorization: Bearer {{jwt}}
 
 ### message create- only when logged in
 POST {{hostname}}/messages
@@ -98,11 +101,11 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "user_id": 1,
-  "group_id": 2,
-  "body": "Let's make today a GREAT day!"
+  
+  "group_id": 3,
+  "body": "Good morning all!"
 }
 
 ### message destroy- only users who are logged in and group admin
-DELETE {{hostname}}/messages/1
+DELETE {{hostname}}/messages/5
 Authorization: Bearer {{jwt}}

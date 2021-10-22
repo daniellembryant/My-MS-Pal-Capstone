@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
     render json: groups
   end
 
-  def create
+  def create  
     group = Group.new(
       name: params[:name],
       summary: params[:summary],
@@ -27,13 +27,13 @@ class GroupsController < ApplicationController
   end
 
   #Only group admin should be able to update a group when logged in 
-  def update
-    group = Group.find(params[:id])
-    group.name = params[:name] || group.name
-    group.summary = params[:summary] || group.summary
-    group.location = params[:location] || group.location
-    group.image_url = params[:image_url] || group.image_url
-    if group.save
+  def update 
+    if current_user && current_user.admin
+      group = Group.find(params[:id])
+      group.name = params[:name] || group.name
+      group.summary = params[:summary] || group.summary
+      group.location = params[:location] || group.location
+      group.image_url = params[:image_url] || group.image_url
       render json: group
     else
       render json: {errors: product.errors.full_messages}
@@ -43,8 +43,12 @@ class GroupsController < ApplicationController
   #only group admin can delete a group when logged in
   #When a group get's destroyed, users should no longer be assigned to that group
   def destroy
-    group = Group.find_by(id: params[:id])
-    group.destroy
-    render json: {message: "The group was successfully deleted"}
+    if current_user && current_user.admin
+      group = Group.find_by(id: params[:id])
+      group.destroy
+      render json: {message: "The group was successfully deleted"}
+    else
+      render json: {message: "You do not have the rights to delete a group."}
+    end
   end
 end
