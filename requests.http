@@ -109,3 +109,21 @@ Authorization: Bearer {{jwt}}
 ### message destroy- only users who are logged in and group admin
 DELETE {{hostname}}/messages/5
 Authorization: Bearer {{jwt}}
+
+### News API Endpoint
+GET https://newsapi.org/v2/everything?q=multiple+sclerosis
+Authorization: <API KEY>
+
+###
+
+#Rails App Articles Index
+GET http://localhost:3000/articles?search=multiple+sclerosis
+
+###
+
+#Quotable API Endpoint
+GET https://api.quotable.io/random?tags=wisdom
+###
+
+#Rails App Quotes Index
+GET http://localhost:3000/quotes?random
