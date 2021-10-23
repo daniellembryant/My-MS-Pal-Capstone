@@ -20,7 +20,6 @@ class UserGroupsController < ApplicationController
     user_group = UserGroup.find_by(id: params[:id])
     user_group.destroy
     render json: {message: "You have successfully left the group"}
-    
-  end
 
+  end
 end

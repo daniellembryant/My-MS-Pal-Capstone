@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2MzUwMzAxNTZ9.a2ENRkmQHQSP7GLD1NZc7Rg6fOqxOsMzCK1S1se5CVM
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzUxMDU0MjZ9.zLPmDppy1F1suzw8T4gfQDk7FBHwBgnTgGLtuto7dSY
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/3
+GET {{hostname}}/users/1
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -29,7 +29,7 @@ Authorization: Bearer {{jwt}}
 
 {
  "password": "password",
-  "diagnosis_date": "2021-02-28"
+  "diagnosis_date": "1989-10-12"
 }
 
 ### user delete- can only delete their own account
@@ -56,7 +56,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name" : "MS Warriors",
+  "name" : "Test 1",
   "summary" : "People with MS doing their best",
   "location" : "Virtual",
   "image_url": ""
@@ -74,11 +74,12 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "summary": "Group of women who are over the age of 50."
+  "summary" : "Group for those who are over the age of 50.",
+  "image_url": "https://images.unsplash.com/photo-1526635090919-b5d79657c5a3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JvdXAlMjBvZiUyMGVsZGVyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"
 }
 
 ###group destroy
-DELETE {{hostname}}/groups/4
+DELETE {{hostname}}/groups/5
 Authorization: Bearer {{jwt}}
 
 ### user_group create- a user can only join a group when they are logged in
@@ -88,11 +89,11 @@ Authorization: Bearer {{jwt}}
 
 {
   
-  "group_id": 3
+  "group_id": 8
   }
 
 ### user_group destroy-only when logged in can a user leave a group
-DELETE {{hostname}}/user_groups/5
+DELETE {{hostname}}/user_groups/2
 Authorization: Bearer {{jwt}}
 
 ### message create- only when logged in
@@ -102,12 +103,12 @@ Authorization: Bearer {{jwt}}
 
 {
   
-  "group_id": 3,
-  "body": "Good morning all!"
+  "group_id": 10,
+  "body": "Hi all!"
 }
 
 ### message destroy- only users who are logged in and group admin
-DELETE {{hostname}}/messages/5
+DELETE {{hostname}}/messages/2
 Authorization: Bearer {{jwt}}
 
 ### News API Endpoint

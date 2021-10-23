@@ -50,5 +50,14 @@ class GroupsController < ApplicationController
     else
       render json: {message: "You do not have the rights to delete a group."}
     end
+    #when a group is destroyed, user information needs to be deleted from user_groups
+
+    # # user_group = UserGroup.find_by(id: params[:id])
+    # group = user_group.groups.find(group_id)
+    # if group
+    #   user_group.groups.delete(group)
+    # end
+
+    
   end
 end
