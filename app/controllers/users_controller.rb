@@ -8,7 +8,6 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password],
       age_group: params[:age_group],
-      password: params[:password],
       password_confirmation: params[:password_confirmation],
       location: params[:location],
       diagnosis_date: params[:diagnosis_date],
@@ -33,16 +32,17 @@ class UsersController < ApplicationController
   #users should only be able to update their own info. when logged in. 
   def update
     user = User.find(params[:id])
-    if user.id == current_user.id
-      user.name = params[:name] || user.name
-      user.email = params[:email] || user.email
-      user.age_group = params[:age_group] || user.age_group
-      user.password = params[:password] || user.password
-      user.password_confirmation = params[:password] || user.password_confirmation
-      user.location = params[:location] || user.location
-      user.diagnosis_date = params[:diagnosis_date] || user.diagnosis_date
-      user.image_url = params[:image_url] || user.image_url
-      render json: user
+    if user == current_user
+    user.name = params[:name] || user.name
+    user.email = params[:email] || user.email
+    user.age_group = params[:age_group] || user.age_group
+    user.password = params[:password] || user.password
+    user.password_confirmation = params[:password] || user.password_confirmation
+    user.location = params[:location] || user.location
+    user.diagnosis_date = params[:diagnosis_date] || user.diagnosis_date
+    user.image_url = params[:image_url] || user.image_url
+    user.save
+    render json: user
     else
       render json: {message: "You do not have access to edit this account"}
     end

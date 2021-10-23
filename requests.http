@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzUxMDU0MjZ9.zLPmDppy1F1suzw8T4gfQDk7FBHwBgnTgGLtuto7dSY
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzUxMTYzMDh9.vZjGd90sqCrCmeuy4xK6cG7R6x7AHpgjVjA-yCETpY0
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/1
+GET {{hostname}}/users/6
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
- "password": "password",
+  "password" : "password",
   "diagnosis_date": "1989-10-12"
 }
 
@@ -56,7 +56,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name" : "Test 1",
+  "name" : "Test 2",
   "summary" : "People with MS doing their best",
   "location" : "Virtual",
   "image_url": ""
@@ -69,7 +69,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### group update-only group admin can update
-PATCH {{hostname}}/groups/2
+PATCH {{hostname}}/groups/6
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -79,7 +79,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ###group destroy
-DELETE {{hostname}}/groups/5
+DELETE {{hostname}}/groups/6
 Authorization: Bearer {{jwt}}
 
 ### user_group create- a user can only join a group when they are logged in
