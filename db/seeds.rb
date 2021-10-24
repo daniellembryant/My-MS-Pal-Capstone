@@ -9,18 +9,29 @@
 # ])
 
 
-# # Group.create!([
+# Group.create!([
 # #   {name: "Strong Women With MS", summary: "Group of women with MS supporting other women with MS", location: " Ft. Lauderdale,FL / Virtual", image_url: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"},
-# #   {name: "MS Elders", summary: "Group for those who are over the age of 50", location: "Miami,FL / Virtual", image_url: ""}
+# #   {name: "MS Elders", summary: "Group for those who are over the age of 50", location: "Miami,FL / Virtual", image_url: ""},
+# {name: "MS Won't Keep Me Down", summary: "Group created for people with MS between the ages of 18-35", location: "Portland, OR / Virtual", image_url: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80"},
+# {name: "Rise Above", summary: "Group that's built on positivity and practicing mindful think to help deal with MS", location: "Virtual", image_url: "https://images.unsplash.com/photo-1580855014124-d1e9d454c6b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"}
 # ])
 
-UserGroup.create!([
-  # {user_id: 6, group_id: 2},
-  # {user_id: 6, group_id: 1}
-])
+# UserGroup.create!([
+#   # {user_id: 6, group_id: 2},
+#   # {user_id: 6, group_id: 1},
+#   # {user_id: 4, group_id: 1},
+#   {user_id: 4, group_id: 7},
+#   {user_id: 4, group_id: 8},
+#   {user_id: 2, group_id: 8},
+#   {user_id: 5, group_id: 1},
+#   {user_id: 5, group_id: 7},
+# {user_id: 3, group_id: 8}
+# ])
 
 # Message.create!([
-#   {user_id: 1, group_id: 2, body: "Let's make today a GREAT day!"},
-#   {user_id: 4, group_id: 3, body: "You guys are great! Thanks for the motivation!"},
-#   {user_id: 4, group_id: 3, body: "Good morning all!"}
+#   {user_id: 6, group_id: 2, body: "Let's make today a GREAT day!"},
+#   {user_id: 6, group_id: 1, body: "You guys are great! Thanks for the motivation!"},
+#   {user_id: 3, group_id: 8, body: "Good morning all! If you need a link to the next meeting, please let me know."},
+#   {user_id: 5, group_id: 1, body: "I'm so happy to be a part of this gorup. It's so nice having a support team who understands what I'm going through."},
+#   {user_id: 4, group_id: 7, body: "Today was a tough day. Hopefully tomorrow will be a lot better"}
 # ])

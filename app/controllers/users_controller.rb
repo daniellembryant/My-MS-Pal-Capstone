@@ -36,8 +36,8 @@ class UsersController < ApplicationController
     user.name = params[:name] || user.name
     user.email = params[:email] || user.email
     user.age_group = params[:age_group] || user.age_group
-    user.password = params[:password] || user.password
-    user.password_confirmation = params[:password] || user.password_confirmation
+    # user.password = params[:password] || user.password
+    # user.password_confirmation = params[:password] || user.password_confirmation
     user.location = params[:location] || user.location
     user.diagnosis_date = params[:diagnosis_date] || user.diagnosis_date
     user.image_url = params[:image_url] || user.image_url

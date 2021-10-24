@@ -16,10 +16,9 @@ class UserGroupsController < ApplicationController
   end
 
   #users can only leave a group when they are logged in
-  def destroy
-    user_group = UserGroup.find_by(id: params[:id])
+  def destroy 
+    user_group = UserGroup.find(params[:id])
     user_group.destroy
     render json: {message: "You have successfully left the group"}
-
   end
 end

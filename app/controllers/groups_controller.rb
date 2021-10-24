@@ -34,9 +34,10 @@ class GroupsController < ApplicationController
       group.summary = params[:summary] || group.summary
       group.location = params[:location] || group.location
       group.image_url = params[:image_url] || group.image_url
+      group.save
       render json: group
     else
-      render json: {errors: product.errors.full_messages}
+      render json: {errors: group.errors.full_messages}
     end
   end
 
@@ -48,16 +49,8 @@ class GroupsController < ApplicationController
       group.destroy
       render json: {message: "The group was successfully deleted"}
     else
-      render json: {message: "You do not have the rights to delete a group."}
+      render json: {errors: group.errors.full_messages}
     end
-    #when a group is destroyed, user information needs to be deleted from user_groups
-
-    # # user_group = UserGroup.find_by(id: params[:id])
-    # group = user_group.groups.find(group_id)
-    # if group
-    #   user_group.groups.delete(group)
-    # end
-
-    
+   
   end
 end
