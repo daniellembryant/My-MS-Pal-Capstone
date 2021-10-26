@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjM1Mjk0OTI4fQ.PUndb2BKb2jN9qvnuLO-4HRpWO1dZgJylC4EdzoAMnk
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMSwiZXhwIjoxNjM1MzY5MjY3fQ.yWt-BLS4sa9siKle5IzAPdkMcsy1yaulgJ5qUKiGNM4
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "name" : "Sam Smith", 
-  "email": "Sam@yahoo.com",
+  "email": "Sammmy@yahoo.com",
   "age_group": "51+",
   "password": "password",
   "password_confirmation": "password",
@@ -33,7 +33,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### user delete- can only delete their own account
-DELETE {{hostname}}/users/10
+DELETE {{hostname}}/users/11
 Authorization: Bearer {{jwt}}
 
 ### sessions create (login)
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "Sam@yahoo.com", 
+  "email" : "Sammmy@yahoo.com", 
   "password": "password"
 }
 
