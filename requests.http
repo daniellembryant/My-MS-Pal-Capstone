@@ -1,39 +1,39 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzUyOTA3NjV9.tydd9f-oTtjZpTOXu4zGgRnmQj8jSrbIgpDqEPST7d8
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjM1Mjk0OTI4fQ.PUndb2BKb2jN9qvnuLO-4HRpWO1dZgJylC4EdzoAMnk
 
 #user create (sign up)
 POST {{hostname}}/users
 Content-Type: application/json
 
 {
-  "name" : "Deb Smith", 
-  "email": "Debbie@yahoo.com",
+  "name" : "Sam Smith", 
+  "email": "Sam@yahoo.com",
   "age_group": "51+",
   "password": "password",
   "password_confirmation": "password",
   "location": "Dallas, TX",
-  "diagnosis_date": "12/01/1990",
+  "diagnosis_date": "2000-11-12",
   "image_url": "https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80"
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/6
+GET {{hostname}}/users/10
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
 ### user update- can only update their own account
-PATCH  {{hostname}}/users/9
+PATCH  {{hostname}}/users/10
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  
-  "diagnosis_date": "2000-11-12"
+  "password": "password123",
+  "password_confirmation" :"password123"
 }
 
 ### user delete- can only delete their own account
-DELETE {{hostname}}/users/9
+DELETE {{hostname}}/users/10
 Authorization: Bearer {{jwt}}
 
 ### sessions create (login)
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "smith.a3_PR@gmail.com", 
+  "email" : "Sam@yahoo.com", 
   "password": "password"
 }
 

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       image_url: params[:image_url],
     )
     if user.save
-      render json: { message: "User created successfully" }, status: :created
+      render json: user
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
@@ -25,7 +25,9 @@ class UsersController < ApplicationController
     if user.id == current_user.id
       render json: user
     else
-      render json: {message: "You do not have access to view this profile"}
+      render json: {errors: user.errors.full_messages},
+      status: 401
+
     end
   end
 
