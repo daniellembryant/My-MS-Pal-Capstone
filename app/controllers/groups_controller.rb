@@ -22,8 +22,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    group = Group.find(params[:id])
-    render json: group
+    group = Group.includes(:users,:messages).find(params[:id])
+    render json: group, serializer: DetailedGroupSerializer, include: "messages.user"
   end
 
   #Only group admin should be able to update a group when logged in 

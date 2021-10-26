@@ -1,29 +1,29 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE2MzUxOTkyMDl9.bNLx0cFpYKmIVpXUghrVOnzDAf2QshS-ijBTrPjxJz8
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzUyOTA3NjV9.tydd9f-oTtjZpTOXu4zGgRnmQj8jSrbIgpDqEPST7d8
 
 #user create (sign up)
 POST {{hostname}}/users
 Content-Type: application/json
 
 {
-  "name" : "test 2", 
-  "email": "test@yahoo.com",
+  "name" : "Deb Smith", 
+  "email": "Debbie@yahoo.com",
   "age_group": "51+",
   "password": "password",
   "password_confirmation": "password",
-  "location": "Milwaukee, WI",
-  "diagnosis_date": "12/01/2000",
+  "location": "Dallas, TX",
+  "diagnosis_date": "12/01/1990",
   "image_url": "https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80"
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/8
+GET {{hostname}}/users/6
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
 ### user update- can only update their own account
-PATCH  {{hostname}}/users/8
+PATCH  {{hostname}}/users/9
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -33,7 +33,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### user delete- can only delete their own account
-DELETE {{hostname}}/users/7
+DELETE {{hostname}}/users/9
 Authorization: Bearer {{jwt}}
 
 ### sessions create (login)
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "test@yahoo.com", 
+  "email" : "smith.a3_PR@gmail.com", 
   "password": "password"
 }
 
@@ -56,9 +56,9 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name" : "Test 3",
+  "name" : "MS Sucks",
   "summary" : "People with MS doing their best",
-  "location" : "Virtual",
+  "location" : "Orlando, FL",
   "image_url": ""
 
 }
@@ -69,7 +69,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### group update-only group admin can update
-PATCH {{hostname}}/groups/9
+PATCH {{hostname}}/groups/13
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -79,7 +79,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ###group destroy
-DELETE {{hostname}}/groups/11
+DELETE {{hostname}}/groups/13
 Authorization: Bearer {{jwt}}
 
 ### user_group create- a user can only join a group when they are logged in
@@ -89,11 +89,11 @@ Authorization: Bearer {{jwt}}
 
 {
   
-  "group_id": 11
+  "group_id": 12
   }
 
 ### user_group destroy-only when logged in can a user leave a group
-DELETE {{hostname}}/user_groups/12
+DELETE {{hostname}}/user_groups/13
 Authorization: Bearer {{jwt}}
 
 ### message create- only when logged in
@@ -103,12 +103,12 @@ Authorization: Bearer {{jwt}}
 
 {
   
-  "group_id": 11,
+  "group_id": 12,
   "body": "Hello everyone!"
 }
 
 ### message destroy- only users who are logged in and group admin
-DELETE {{hostname}}/messages/8
+DELETE {{hostname}}/messages/10
 Authorization: Bearer {{jwt}}
 
 ### News API Endpoint
