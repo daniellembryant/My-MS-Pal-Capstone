@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "Sammmy@yahoo.com", 
+  "email" : "sam_1999@yahoo.com", 
   "password": "password"
 }
 
