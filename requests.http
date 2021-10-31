@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMSwiZXhwIjoxNjM1MzY5MjY3fQ.yWt-BLS4sa9siKle5IzAPdkMcsy1yaulgJ5qUKiGNM4
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzU4MDEwMTd9.gL-zargS3WPUJXf7OFvBk3W_QHqPfmAXz8-vJYyEXH0
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -17,19 +17,18 @@ Content-Type: application/json
 
 }
 ### users show- should only see there own account
-GET {{hostname}}/users/10
+GET {{hostname}}/users/6
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
 ### user update- can only update their own account
-PATCH  {{hostname}}/users/10
+PATCH  {{hostname}}/users/1
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "password": "password123",
-  "password_confirmation" :"password123"
+  "location": "Orlando, FL"
 }
 
 ### user delete- can only delete their own account
@@ -42,7 +41,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "sam_1999@yahoo.com", 
+  "email" : "smith.a3_PR@gmail.com", 
   "password": "password"
 }
 
