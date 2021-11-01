@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    message = Message.find_by(id: params[:id])
+    message = Message.find(params[:id])
     message.destroy
     render json: {message: "Message successfully deleted"}
   end
