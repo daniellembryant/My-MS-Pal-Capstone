@@ -63,7 +63,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### groups show
-GET {{hostname}}/groups/1
+GET {{hostname}}/groups/2
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
