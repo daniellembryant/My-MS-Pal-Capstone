@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzU4MDEwMTd9.gL-zargS3WPUJXf7OFvBk3W_QHqPfmAXz8-vJYyEXH0
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzU5MDM0MjJ9.3ZCnVzqnFjcs4dteELH8nSXD_XPng_9MPym9ZjavzYw
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -81,6 +81,11 @@ Authorization: Bearer {{jwt}}
 DELETE {{hostname}}/groups/13
 Authorization: Bearer {{jwt}}
 
+### user-group index
+GET {{hostname}}/user_groups
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
 ### user_group create- a user can only join a group when they are logged in
 POST {{hostname}}/user_groups
 Content-Type: application/json
@@ -92,7 +97,7 @@ Authorization: Bearer {{jwt}}
   }
 
 ### user_group destroy-only when logged in can a user leave a group
-DELETE {{hostname}}/user_groups/13
+DELETE {{hostname}}/user_groups/3
 Authorization: Bearer {{jwt}}
 
 ### message create- only when logged in
