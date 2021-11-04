@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzU5MDM0MjJ9.3ZCnVzqnFjcs4dteELH8nSXD_XPng_9MPym9ZjavzYw
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2MzYwNTU2NDR9.3SXP976XOkefur9_ie21d2G4OvU-8XRzi8T-QWO2Lwo
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -41,7 +41,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "smith.a3_PR@gmail.com", 
+  "email" : "sg@gmail.com", 
   "password": "password"
 }
 
@@ -112,7 +112,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### message destroy- only users who are logged in and group admin
-DELETE {{hostname}}/messages/10
+DELETE {{hostname}}/messages/27
 Authorization: Bearer {{jwt}}
 
 ### News API Endpoint

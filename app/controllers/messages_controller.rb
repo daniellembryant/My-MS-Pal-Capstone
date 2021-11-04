@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   
   before_action :authenticate_user
-  before_action :authenticate_admin, except: [:create]
+  # before_action :authenticate_admin, except: [:create]
 
   def create
     message = Message.new(
@@ -18,7 +18,11 @@ class MessagesController < ApplicationController
 
   def destroy
     message = Message.find(params[:id])
-    message.destroy
-    render json: {message: "Message successfully deleted"}
+    if current_user.id == message.user_id || current_user.admin
+      message.destroy
+      render json: {message: "Message successfully deleted"}
+    else
+      render json: {errors: message.errors.full_messages}
+    end
   end
 end
