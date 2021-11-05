@@ -3,6 +3,7 @@ class DetailedGroupSerializer < GroupSerializer
   
 
   has_many :messages
+  has_many :notifications
   # has_many :users
 
   def member

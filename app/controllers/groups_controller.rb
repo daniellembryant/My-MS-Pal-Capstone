@@ -12,6 +12,8 @@ class GroupsController < ApplicationController
       name: params[:name],
       summary: params[:summary],
       location: params[:location],
+      meeting_notes: params[:meeting_notes],
+      meeting_url: params[:meeting_url],
       image_url: params[:image_url]
     )
     if group.save
@@ -34,6 +36,8 @@ class GroupsController < ApplicationController
       group.summary = params[:summary] || group.summary
       group.location = params[:location] || group.location
       group.image_url = params[:image_url] || group.image_url
+      group.meeting_notes = params[:meeting_notes] || group.meeting_notes
+      group.meeting_url = params[:meeting_url] || group.meeting_url
       group.save
       render json: group
     else

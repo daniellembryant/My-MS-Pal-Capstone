@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   post "/messages" => "messages#create"
   delete "/messages/:id" => "messages#destroy"
 
+  post "/notifications" => "notifications#create"
+  delete "/notifications/:id" => "notifications#destroy"
+
   #Third party apis
   get "/articles" => "articles#index"
   get "/quotes" => "quotes#index"

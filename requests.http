@@ -1,5 +1,5 @@
 @hostname = http://localhost:3000
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2MzYwNTU2NDR9.3SXP976XOkefur9_ie21d2G4OvU-8XRzi8T-QWO2Lwo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2MzYxNTE5ODJ9.3bebYn7Vi-VgwKZc4JC6PausDPaV3oLe5hUgfKWnfqs
 
 #user create (sign up)
 POST {{hostname}}/users
@@ -41,7 +41,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email" : "sg@gmail.com", 
+  "email" : "smith.a3_PR@gmail.com", 
   "password": "password"
 }
 
@@ -68,17 +68,17 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### group update-only group admin can update
-PATCH {{hostname}}/groups/13
+PATCH {{hostname}}/groups/2
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  
-  "image_url": "https://images.unsplash.com/photo-1580855014124-d1e9d454c6b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+  "location": "Atlanta, GA/ Virtual",
+  "meeting_notes": "Our meetings are held every other Thursday at 5:00pm est. at Hampton Inn & Suites by Hilton Miami Brickell Downtown. Our meetings are also held virtually via Zoom. Please see below for the link."
 }
 
 ###group destroy
-DELETE {{hostname}}/groups/13
+DELETE {{hostname}}/groups/12
 Authorization: Bearer {{jwt}}
 
 ### user-group index
@@ -115,11 +115,26 @@ Authorization: Bearer {{jwt}}
 DELETE {{hostname}}/messages/27
 Authorization: Bearer {{jwt}}
 
+### notification create
+POST {{hostname}}/notifications
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  
+  "user_id": 6,
+  "group_id": 7,
+  "body": "Hi everyone! We are canceling tonights meeting."
+}
+
+### notification destroy
+DELETE {{hostname}}/notifications/1
+Authorization: Bearer {{jwt}}
+
 ### News API Endpoint
 GET https://newsapi.org/v2/everything?q=multiple+sclerosis
 Authorization: <API KEY>
 
-###
 
 #Rails App Articles Index
 GET http://localhost:3000/articles?search=multiple+sclerosis

@@ -22,6 +22,10 @@ class UsersController < ApplicationController
    #users should only be able to see their own account when logged in. 
   def show
     user = User.find(params[:id])
+    # user.each do |user|
+    #   return user.notification
+    # end
+  
     if user.id == current_user.id
       render json: user
     else
